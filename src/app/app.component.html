@@ -1,12 +1,14 @@
-  {{title}}
-  <br>
-  <ng-container *ngFor="let k of kontakty">
+ <header>
+   <h1>{{title | uppercase}}</h1>
+ </header>
 
-    <div class="contact">
-      <p>Pseudonim: {{k.alias }}</p>
-      <p>Imię: {{k.name}}</p>
-      <p>Nazwisko: {{k.surName}}</p>
-      <p>E-mail: {{k.email}}</p>
-      <p>Nr telefonu: {{k.phone}}</p>
-    </div>
-  </ng-container>
+ <br>
+
+ <app-kontakt></app-kontakt>
+ <app-kontakt-details></app-kontakt-details>
+ <button type="button" class="btn btn-info btn-lg" (click)="add()">Dodaj kontakt</button><br>
+ <hr>
+ <app-add></app-add>
+ <br>
+ <hr>
+ <app-edit></app-edit>

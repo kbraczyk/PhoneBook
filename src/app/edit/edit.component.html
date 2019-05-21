@@ -1,0 +1,12 @@
+<div *ngIf="editKontakt">
+
+  <h5 class="card-title">Edycja kontaktu: {{editKontakt.alias}}</h5>
+
+  <form action="">
+    <input placeholder="Alias" type="text" name="alias" [(ngModel)]="editKontakt.alias" required>
+    <input placeholder="Name" type="text" name="name" [(ngModel)]="editKontakt.name" required>
+    <input placeholder="Sur Name" type="text" name="surName" [(ngModel)]="editKontakt.surName" required>
+    <input placeholder="E-mail" type="email" name="email" [(ngModel)]="editKontakt.email" required>
+    <input placeholder="Phone number" type="tel" name="phone" [(ngModel)]="editKontakt.phone" required>
+    <input type="submit">
+  </form>

@@ -1,4 +1,7 @@
-export class Kontakt {
-  constructor(public alias: string, public name: string, public surName: string, public email: string, public phone: number) {
-  }
+export interface Kontakt {
+  alias: string;
+  name: string;
+  surName: string;
+  email: string;
+  phone: number;
 }

@@ -1,16 +1,13 @@
 import { Component } from '@angular/core';
-import { contacts } from '../app/contacts-mocks';
+import { ContactService } from './contact.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [ContactService]
 })
 
 export class AppComponent {
-  title = 'Testowanie komponentów i bindów';
-  kontakty = contacts;
+  title = 'Phone Book';
 }
-
-
-
