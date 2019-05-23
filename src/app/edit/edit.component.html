@@ -1,12 +1,21 @@
-<div *ngIf="editKontakt">
-
-  <h5 class="card-title">Edycja kontaktu: {{editKontakt.alias}}</h5>
-
-  <form action="">
-    <input placeholder="Alias" type="text" name="alias" [(ngModel)]="editKontakt.alias" required>
-    <input placeholder="Name" type="text" name="name" [(ngModel)]="editKontakt.name" required>
-    <input placeholder="Sur Name" type="text" name="surName" [(ngModel)]="editKontakt.surName" required>
-    <input placeholder="E-mail" type="email" name="email" [(ngModel)]="editKontakt.email" required>
-    <input placeholder="Phone number" type="tel" name="phone" [(ngModel)]="editKontakt.phone" required>
-    <input type="submit">
-  </form>
+  <div *ngIf="editKontakt">
+    <h3>Edit contact: {{editKontakt.alias}}</h3>
+    <form class="edit-form">
+      <mat-form-field class="edit-input">
+        <input matInput placeholder="Alias" name="alias" [(ngModel)]="editKontakt.alias">
+      </mat-form-field>
+      <mat-form-field class="edit-input">
+        <input matInput placeholder="Name" name="name" [(ngModel)]="editKontakt.name">
+      </mat-form-field>
+      <mat-form-field class="edit-input">
+        <input matInput placeholder="Sur Name" name="surName" [(ngModel)]="editKontakt.surName">
+      </mat-form-field>
+      <mat-form-field class="edit-input">
+        <input matInput placeholder="E-mail" name="email" [(ngModel)]="editKontakt.email">
+      </mat-form-field>
+      <mat-form-field class="edit-input">
+        <input matInput placeholder="Phone number" name="phone" [(ngModel)]="editKontakt.phone">
+      </mat-form-field>
+    </form>
+    <a mat-stroked-button [routerLink]="['/']">Save</a>
+  </div>

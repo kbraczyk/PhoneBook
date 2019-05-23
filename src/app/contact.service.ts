@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Kontakt } from './kontakt';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { SelectorContext } from '@angular/compiler';
 
 @Injectable()
 export class ContactService {
@@ -16,11 +15,11 @@ export class ContactService {
 
 
   constructor() {
-    this.contacts = [{ alias: 'Cylo', name: 'Krzysztof', surName: 'Brączyk', email: 'braczykkrzysztof@gmail.com', phone: 787276491 },
-    { alias: 'Izka', name: 'Izabela', surName: 'Adamski', email: 'izi@gmail.com', phone: 799256348 },
-    { alias: 'Olek', name: 'Aleksander', surName: 'Piotrowski', email: 'oleq@gmail.com', phone: 787215356 },
-    { alias: 'Natalka', name: 'Natalia', surName: 'Dworska', email: 'dworka.natalia@gmail.com', phone: 514452160 },
-    { alias: 'Leoś', name: 'Leon', surName: 'Grabowski', email: 'leoncjusz@gmail.com', phone: 717041708 }
+    this.contacts = [{ id: 1, alias: 'Cylo', name: 'Krzysztof', surName: 'Brączyk', email: 'braczykkrzysztof@gmail.com', phone: 787276491 },
+    { id: 2, alias: 'Izka', name: 'Izabela', surName: 'Adamski', email: 'izi@gmail.com', phone: 799256348 },
+    { id: 3, alias: 'Olek', name: 'Aleksander', surName: 'Piotrowski', email: 'oleq@gmail.com', phone: 787215356 },
+    { id: 4, alias: 'Natalka', name: 'Natalia', surName: 'Dworska', email: 'dworka.natalia@gmail.com', phone: 514452160 },
+    { id: 5, alias: 'Leoś', name: 'Leon', surName: 'Grabowski', email: 'leoncjusz@gmail.com', phone: 717041708 }
     ];
     this.contactsObs.next(this.contacts);
   }
@@ -36,7 +35,7 @@ export class ContactService {
   }
 
   add(kontakt: Kontakt) {
-    if (kontakt.alias && kontakt.name && kontakt.surName && kontakt.email && kontakt.phone) {
+    if (kontakt.alias && kontakt.name && kontakt.surName && kontakt.email && kontakt.phone && !isNaN(kontakt.phone)) {
       this.contacts.push(kontakt);
       this.contactsObs.next(this.contacts);
     } else {

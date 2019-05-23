@@ -1,16 +1,15 @@
-$font-color: rgb(255, 255, 240);
-$button-color: #cc0000;
-$contact-color: rgb(25, 36, 124);
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
-header {
-  background-color: rgb(122, 6, 6);
-  padding: 30px 0 30px 0;
+.example-icon {
+  padding: 0 14px;
+  margin-right: 5px;
+}
 
-  h1 {
-    font-size: 40px;
-    text-align: center;
-    letter-spacing: 7px;
-    color: $font-color;
-    font-weight: 700;
-  }
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+div {
+  width: 60%;
+  margin: 0 auto;
 }
