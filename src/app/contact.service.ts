@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Kontakt } from './kontakt';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 @Injectable()
 export class ContactService {
 
   private contacts: Kontakt[];
-  private detailContact: Kontakt;
-  private editContact: Kontakt;
+  // private detailContact: Kontakt;
+  // private editContact: Kontakt;
 
   private contactsObs = new BehaviorSubject<Array<Kontakt>>([]);
-  private detailObs = new BehaviorSubject<Kontakt>(this.detailContact);
-  private editObs = new BehaviorSubject<Kontakt>(this.editContact);
+  // private detailObs = new BehaviorSubject<Kontakt>(this.detailContact);
+  // private editObs = new BehaviorSubject<Kontakt>(this.editContact);
 
 
   constructor() {
@@ -27,32 +27,24 @@ export class ContactService {
   getContactsObs(): Observable<Array<Kontakt>> {
     return this.contactsObs.asObservable();
   }
-  getDetailContact(): Observable<Kontakt> {
-    return this.detailObs.asObservable();
-  }
-  getEditContact(): Observable<Kontakt> {
-    return this.editObs.asObservable();
+  getCon(id: number): Observable<Kontakt> {
+    return of(this.contacts.find(con => con.id === id));
   }
 
   add(kontakt: Kontakt) {
     if (kontakt.alias && kontakt.name && kontakt.surName && kontakt.email && kontakt.phone && !isNaN(kontakt.phone)) {
+      kontakt.id = this.contacts.length + 1;
       this.contacts.push(kontakt);
       this.contactsObs.next(this.contacts);
     } else {
       console.log('error');
     }
   }
-  edit(kontakt: Kontakt) {
-    this.editContact = kontakt;
-    this.editObs.next(this.editContact);
-  }
+  // edit() {
+  //   this.contactsObs.next(this.contacts.slice());
+  // }
   remove(kontakt) {
     this.contacts.splice(this.contacts.indexOf(kontakt), 1);
     this.contactsObs.next(this.contacts);
-  }
-
-  detail(kontakt: Kontakt) {
-    this.detailContact = kontakt;
-    this.detailObs.next(this.detailContact);
   }
 }

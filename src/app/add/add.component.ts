@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, TemplateRef } from '@angular/core';
 import { ContactService } from '../contact.service';
 import { Kontakt } from '../kontakt';
 
@@ -10,20 +10,20 @@ import { Kontakt } from '../kontakt';
 })
 export class AddComponent implements OnInit {
 
-  newContact: Kontakt = { alias: '', name: '', surName: '', email: '', phone: null };
+  newContact: Kontakt = { id: null, alias: '', name: '', surName: '', email: '', phone: null };
   maxLength = 24;
 
 
   constructor(@Inject(ContactService) private service) {
-
   }
 
   ngOnInit() {
   }
 
   addContact() {
-    this.service.add(this.newContact);
-    this.newContact = { alias: '', name: '', surName: '', email: '', phone: null };
+    if (this.newContact) {
+      this.service.add(this.newContact);
+      this.newContact = { id: null, alias: '', name: '', surName: '', email: '', phone: null };
+    }
   }
-
 }

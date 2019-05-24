@@ -1,21 +1,21 @@
-  <div *ngIf="editKontakt">
-    <h3>Edit contact: {{editKontakt.alias}}</h3>
+  <div *ngIf="kontakt">
+    <h3>Edit contact</h3>
     <form class="edit-form">
       <mat-form-field class="edit-input">
-        <input matInput placeholder="Alias" name="alias" [(ngModel)]="editKontakt.alias">
+        <input matInput placeholder="Alias" name="alias" [(ngModel)]="kontakt.alias">
       </mat-form-field>
       <mat-form-field class="edit-input">
-        <input matInput placeholder="Name" name="name" [(ngModel)]="editKontakt.name">
+        <input matInput placeholder="Name" name="name" [(ngModel)]="kontakt.name">
       </mat-form-field>
       <mat-form-field class="edit-input">
-        <input matInput placeholder="Sur Name" name="surName" [(ngModel)]="editKontakt.surName">
+        <input matInput placeholder="Sur Name" name="surName" [(ngModel)]="kontakt.surName">
       </mat-form-field>
       <mat-form-field class="edit-input">
-        <input matInput placeholder="E-mail" name="email" [(ngModel)]="editKontakt.email">
+        <input matInput placeholder="E-mail" name="email" [(ngModel)]="kontakt.email">
       </mat-form-field>
       <mat-form-field class="edit-input">
-        <input matInput placeholder="Phone number" name="phone" [(ngModel)]="editKontakt.phone">
+        <input matInput placeholder="Phone number" name="phone" [(ngModel)]="kontakt.phone">
       </mat-form-field>
     </form>
-    <a mat-stroked-button [routerLink]="['/']">Save</a>
+    <button mat-flat-button color="accent" routerLink="/">Save</button>
   </div>

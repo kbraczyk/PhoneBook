@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Kontakt } from '../kontakt';
 import { ContactService } from '../contact.service';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-edit',
@@ -9,16 +11,17 @@ import { ContactService } from '../contact.service';
 })
 export class EditComponent implements OnInit {
 
-  editKontakt: Kontakt;
+  kontakt: Kontakt;
 
-  constructor(private service: ContactService) {
-    this.service.getEditContact().subscribe(con => {
-      this.editKontakt = con;
-    });
+  constructor(private route: ActivatedRoute, private service: ContactService, private location: Location) {
   }
 
   ngOnInit() {
+    this.getContact();
   }
 
-
+  getContact() {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.service.getCon(id).subscribe(selectContakt => this.kontakt = selectContakt);
+  }
 }

@@ -1,5 +1,10 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let kontakt"> {{kontakt.id}} </td>
+  </ng-container>
+
   <ng-container matColumnDef="alias">
     <th mat-header-cell *matHeaderCellDef> Alias </th>
     <td mat-cell *matCellDef="let kontakt"> {{kontakt.alias}} </td>
@@ -28,9 +33,8 @@
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef> Action </th>
     <td mat-cell *matCellDef="let kontakt">
-      <button mat-flat-button color="primary" [routerLink]="['/details',kontakt.id]"
-        (click)="onSelect(kontakt)">Details</button>
-      <button mat-flat-button color="accent" [routerLink]="['/edit',kontakt.id]" (click)="edit(kontakt)">Edit</button>
+      <button mat-flat-button color="primary" routerLink="/details/{{kontakt.id}}">Details</button>
+      <button mat-flat-button color="accent" routerLink="/edit/{{kontakt.id}}">Edit</button>
       <button mat-flat-button color="warn" (click)="remove(kontakt)">Remove</button>
     </td>
   </ng-container>
@@ -39,5 +43,5 @@
   <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
 </table>
 <div style="text-align: center; margin-top: 20px;">
-  <button mat-flat-button [routerLink]="['/newcontact']" color="accent">Add new contact</button>
+  <button mat-flat-button routerLink="/newcontact" color="accent">Add new contact</button>
 </div>

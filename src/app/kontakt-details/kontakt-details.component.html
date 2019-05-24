@@ -1,12 +1,12 @@
-<mat-card *ngIf="selectContact">
-  <mat-card-title>Szczegóły kontaktu: {{selectContact.alias}}</mat-card-title>
+<mat-card *ngIf="kontakt">
+  <mat-card-title>Szczegóły kontaktu: {{kontakt.id}}</mat-card-title>
   <mat-card-content>
-    <p>Imie Nazwisko: {{selectContact.name}} {{selectContact.surName}}</p>
-    <p>Pseudonim: {{selectContact.alias}}</p>
-    <p>E-mail: {{selectContact.email}}</p>
-    <p>Telefon: {{selectContact.phone}}</p>
+    <p>Imie Nazwisko: {{kontakt.name}} {{kontakt.surName}}</p>
+    <p>Pseudonim: {{kontakt.alias}}</p>
+    <p>E-mail: {{kontakt.email}}</p>
+    <p>Telefon: {{kontakt.phone}}</p>
   </mat-card-content>
   <mat-card-actions>
-    <a mat-stroked-button [routerLink]="['/']">Back</a>
+    <button mat-flat-button color="primary" routerLink="/">Back</button>
   </mat-card-actions>
 </mat-card>

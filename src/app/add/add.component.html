@@ -1,19 +1,19 @@
 <form class="edit-form">
   <h3>Add new contakt</h3>
   <mat-form-field class="edit-input">
-    <input matInput placeholder="Alias" name="alias" [(ngModel)]="newContact.alias">
+    <input matInput placeholder="Alias" name="alias" [(ngModel)]="newContact.alias" required>
   </mat-form-field>
   <mat-form-field class="edit-input">
-    <input matInput placeholder="Name" name="name" [(ngModel)]="newContact.name">
+    <input matInput placeholder="Name" name="name" [(ngModel)]="newContact.name" required>
   </mat-form-field>
   <mat-form-field class="edit-input">
-    <input matInput placeholder="Sur Name" name="surName" [(ngModel)]="newContact.surName">
+    <input matInput placeholder="Sur Name" name="surName" [(ngModel)]="newContact.surName" required>
   </mat-form-field>
   <mat-form-field class="edit-input">
-    <input matInput placeholder="E-mail" name="email" [(ngModel)]="newContact.email">
+    <input matInput placeholder="E-mail" name="email" [(ngModel)]="newContact.email" required>
   </mat-form-field>
   <mat-form-field class="edit-input">
-    <input matInput placeholder="Phone number" name="phone" [(ngModel)]="newContact.phone">
+    <input matInput placeholder="Phone number" name="phone" [(ngModel)]="newContact.phone" required>
   </mat-form-field>
+  <button mat-flat-button color="accent" routerLink="/" (click)="addContact()">Save</button>
 </form>
-<a mat-stroked-button [routerLink]="['/']" (click)="addContact()">Save</a>
