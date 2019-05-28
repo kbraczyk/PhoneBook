@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Kontakt } from './kontakt';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { CONTACTS } from './contacts-mock';
 
 @Injectable()
 export class ContactService {
