@@ -16,13 +16,17 @@ const routes: Routes = [
   },
   {
     path: 'details/:id',
-    component: KontaktDetailsComponent
+    component: KontaktDetailsComponent,
   },
   {
-    path: 'edit/:id',
+    path: 'clients/edit/:id',
     component: EditComponent
+  },
+  {
+    path: '**',
+    component: KontaktComponent,
+    redirectTo: ''
   }
-
 ];
 
 export const AppRoutes = RouterModule.forRoot(routes);

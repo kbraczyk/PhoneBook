@@ -1,4 +1,4 @@
-  <div *ngIf="kontakt">
+  <div class="edit" *ngIf="kontakt else noFoundContact">
     <h3>Edit contact</h3>
     <form class="edit-form">
       <mat-form-field class="edit-input">
@@ -19,3 +19,10 @@
     </form>
     <button mat-flat-button color="accent" routerLink="/">Save</button>
   </div>
+
+  <ng-template #noFoundContact>
+    <div class="noFound">
+      <h3>{{ 'contact not found' | uppercase }}</h3>
+      <button mat-flat-button color="primary" routerLink="/">Back</button>
+    </div>
+  </ng-template>

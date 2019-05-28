@@ -1,15 +1,10 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
-.example-icon {
-  padding: 0 14px;
-  margin-right: 5px;
-}
-
-.example-spacer {
-  flex: 1 1 auto;
-}
-
 div {
-  width: 60%;
   margin: 0 auto;
+}
+
+.navbar {
+  background-color: rgba(156, 39, 228, 0.83);
+  margin-bottom: 30px;
 }

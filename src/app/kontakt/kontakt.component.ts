@@ -1,7 +1,9 @@
-import { Component, ViewChild, OnInit, Inject, } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { ContactService } from '../contact.service';
 import { Kontakt } from '../kontakt';
-import { MatTable, MatTableDataSource, MatSort, MatDialog } from '@angular/material';
+import { MatTableDataSource } from '@angular/material';
+import { DialogService } from '../dialog.service';
+import { RemoveComponent } from '../remove/remove.component';
 import { AddComponent } from '../add/add.component';
 
 @Component({
@@ -9,31 +11,28 @@ import { AddComponent } from '../add/add.component';
   templateUrl: './kontakt.component.html',
   styleUrls: ['./kontakt.component.scss'],
 })
-export class KontaktComponent implements OnInit {
+export class KontaktComponent implements DoCheck {
 
   kontakty: Array<Kontakt>;
-
-  columnsToDisplay = ['id', 'alias', 'name', 'surName', 'email', 'phone', 'action'];
   dataSource;
+  columnsToDisplay = ['id', 'alias', 'name', 'surName', 'email', 'phone', 'action'];
 
-
-  @ViewChild('table') table: MatTable<Element>;
-  @ViewChild(MatSort) sort: MatSort;
-
-  constructor(private service: ContactService) {
-    this.service.getContactsObs().subscribe((contact: Array<Kontakt>) => {
-      this.kontakty = contact;
+  constructor(private dialogService: DialogService, private service: ContactService) {
+    this.service.getContactsObs().subscribe((contacts: Array<Kontakt>) => {
+      this.kontakty = contacts;
     });
   }
 
-  ngOnInit() {
+  ngDoCheck(): void {
     this.dataSource = new MatTableDataSource(this.kontakty);
-    this.dataSource.sort = this.sort;
   }
 
-  remove(kontakt) {
-    const data = this.dataSource.data;
-    this.service.remove(kontakt);
-    this.dataSource.data = data;
+  openDialogRemove(kontakt) {
+    this.dialogService.openDialog(RemoveComponent, kontakt);
   }
+  openDialogAdd() {
+    this.dialogService.openDialog(AddComponent);
+  }
+
 }
+

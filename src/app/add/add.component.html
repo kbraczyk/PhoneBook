@@ -1,19 +1,27 @@
-<form class="edit-form">
-  <h3>Add new contakt</h3>
-  <mat-form-field class="edit-input">
-    <input matInput placeholder="Alias" name="alias" [(ngModel)]="newContact.alias" required>
-  </mat-form-field>
-  <mat-form-field class="edit-input">
-    <input matInput placeholder="Name" name="name" [(ngModel)]="newContact.name" required>
-  </mat-form-field>
-  <mat-form-field class="edit-input">
-    <input matInput placeholder="Sur Name" name="surName" [(ngModel)]="newContact.surName" required>
-  </mat-form-field>
-  <mat-form-field class="edit-input">
-    <input matInput placeholder="E-mail" name="email" [(ngModel)]="newContact.email" required>
-  </mat-form-field>
-  <mat-form-field class="edit-input">
-    <input matInput placeholder="Phone number" name="phone" [(ngModel)]="newContact.phone" required>
-  </mat-form-field>
-  <button mat-flat-button color="accent" routerLink="/" (click)="addContact()">Save</button>
-</form>
+  <div class="head">
+    <h2 mat-dialog-title>Create new contact</h2>
+    <mat-icon id="close-icon" (click)="closeDialog()">close</mat-icon>
+  </div>
+  <div mat-dialog-content>
+    <mat-form-field class="edit-input">
+      <input matInput placeholder="Alias" name="alias" [(ngModel)]="newContact.alias" [maxlength]="maxLength" required>
+    </mat-form-field>
+    <mat-form-field class="edit-input">
+      <input matInput placeholder="Name" name="name" [(ngModel)]="newContact.name" [maxlength]="maxLength" required>
+    </mat-form-field>
+    <mat-form-field class="edit-input">
+      <input matInput placeholder="Sur Name" name="surName" [(ngModel)]="newContact.surName" [maxlength]="maxLength"
+        required>
+    </mat-form-field>
+    <mat-form-field class="edit-input">
+      <input matInput placeholder="E-mail" name="email" [(ngModel)]="newContact.email" [maxlength]="maxLength+8"
+        required>
+    </mat-form-field>
+    <mat-form-field class="edit-input">
+      <input matInput placeholder="Phone number" name="phone" [(ngModel)]="newContact.phone" [maxlength]="maxLength-12"
+        required>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-action>
+    <button mat-flat-button color="accent" (click)="addContact()">Create</button>
+  </div>

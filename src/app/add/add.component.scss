@@ -1,6 +1,10 @@
-.edit-form {
-  width: 60%;
-  margin: 20px auto;
+.head {
+  display: flex;
+  justify-content: space-between;
+
+  #close-icon {
+    cursor: pointer;
+  }
 }
 
 .edit-input {

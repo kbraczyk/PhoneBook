@@ -1,18 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatInputModule } from '@angular/material';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { KontaktDetailsComponent } from './kontakt-details/kontakt-details.component';
+
+// Angular Material
+import { MatButtonModule, MatMenuModule, MatToolbarModule, MatIconModule, MatInputModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+
+// Routing
+import { AppRoutingModule } from './app-routing.module';
+import { AppRoutes } from './app.routes';
+
+
+// Components
+import { AppComponent } from './app.component';
 import { KontaktComponent } from './kontakt/kontakt.component';
-import { ContactService } from './contact.service';
+import { KontaktDetailsComponent } from './kontakt-details/kontakt-details.component';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { AppRoutes } from './app.routes';
-import { MatTableModule } from '@angular/material/table';
+import { RemoveComponent } from './remove/remove.component';
+
+// Services
+import { ContactService } from './contact.service';
+import { DialogService } from './dialog.service';
 
 
 @NgModule({
@@ -22,7 +34,7 @@ import { MatTableModule } from '@angular/material/table';
     KontaktComponent,
     AddComponent,
     EditComponent,
-
+    RemoveComponent
   ],
   imports: [
     BrowserModule,
@@ -31,17 +43,16 @@ import { MatTableModule } from '@angular/material/table';
     BrowserAnimationsModule,
     MatButtonModule,
     MatMenuModule,
-    MatCardModule,
-    MatCardModule,
     MatIconModule,
     MatToolbarModule,
     MatDialogModule,
     MatInputModule,
     AppRoutes,
-    MatTableModule
+    MatTableModule,
+    MatCardModule
   ],
-  providers: [ContactService],
+  providers: [ContactService, DialogService],
   bootstrap: [AppComponent],
-  entryComponents: [AddComponent]
+  entryComponents: [RemoveComponent, AddComponent]
 })
 export class AppModule { }

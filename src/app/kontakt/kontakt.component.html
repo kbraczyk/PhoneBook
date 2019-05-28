@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -34,14 +34,13 @@
     <th mat-header-cell *matHeaderCellDef> Action </th>
     <td mat-cell *matCellDef="let kontakt">
       <button mat-flat-button color="primary" routerLink="/details/{{kontakt.id}}">Details</button>
-      <button mat-flat-button color="accent" routerLink="/edit/{{kontakt.id}}">Edit</button>
-      <button mat-flat-button color="warn" (click)="remove(kontakt)">Remove</button>
+      <button mat-flat-button color="accent" routerLink="/clients/edit/{{kontakt.id}}">Edit</button>
+      <button mat-flat-button color="warn" (click)="openDialogRemove(kontakt)">Remove</button>
     </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
   <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
 </table>
-<div style="text-align: center; margin-top: 20px;">
-  <button mat-flat-button routerLink="/newcontact" color="accent">Add new contact</button>
-</div>
+
+<button mat-flat-button color="accent" class="newContact" (click)="openDialogAdd()">Add new contact</button>

@@ -1,4 +1,4 @@
-<mat-card *ngIf="kontakt">
+<mat-card *ngIf="kontakt else noFoundContact">
   <mat-card-title>Szczegóły kontaktu: {{kontakt.id}}</mat-card-title>
   <mat-card-content>
     <p>Imie Nazwisko: {{kontakt.name}} {{kontakt.surName}}</p>
@@ -10,3 +10,9 @@
     <button mat-flat-button color="primary" routerLink="/">Back</button>
   </mat-card-actions>
 </mat-card>
+<ng-template #noFoundContact>
+  <div class="noFound">
+    <h3>{{ 'contact not found' | uppercase }}</h3>
+    <button mat-flat-button color="primary" routerLink="/">Back</button>
+  </div>
+</ng-template>

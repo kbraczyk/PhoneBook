@@ -1,10 +1,6 @@
-<div>
-  <mat-toolbar role="heading" color="primary">
-    <mat-toolbar-row>
-      <span>{{title}}</span>
-      <span class="example-spacer"></span>
-      <mat-icon class="example-icon" aria-hidden="false">contacts</mat-icon>
-    </mat-toolbar-row>
-  </mat-toolbar>
+<div class="container">
+  <nav class="navbar fixed-top navbar-light">
+    <a class="navbar-brand" [routerLink]="['/']" routerLinkActive="router-link-active">{{title}}</a>
+  </nav>
+  <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>

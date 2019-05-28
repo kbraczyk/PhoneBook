@@ -1,6 +1,7 @@
-import { Component, OnInit, Inject, TemplateRef } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ContactService } from '../contact.service';
 import { Kontakt } from '../kontakt';
+import { MatDialogRef } from '@angular/material';
 
 
 @Component({
@@ -13,8 +14,7 @@ export class AddComponent implements OnInit {
   newContact: Kontakt = { id: null, alias: '', name: '', surName: '', email: '', phone: null };
   maxLength = 24;
 
-
-  constructor(@Inject(ContactService) private service) {
+  constructor(@Inject(ContactService) private service, private dialogRef: MatDialogRef<AddComponent>) {
   }
 
   ngOnInit() {
@@ -24,6 +24,10 @@ export class AddComponent implements OnInit {
     if (this.newContact) {
       this.service.add(this.newContact);
       this.newContact = { id: null, alias: '', name: '', surName: '', email: '', phone: null };
+      this.dialogRef.close();
     }
+  }
+  closeDialog() {
+    this.dialogRef.close();
   }
 }
