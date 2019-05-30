@@ -14,8 +14,8 @@
         required>
     </mat-form-field>
     <mat-form-field class="edit-input">
-      <input matInput placeholder="E-mail" name="email" [(ngModel)]="newContact.email" [maxlength]="maxLength+8"
-        required>
+      <input matInput placeholder="E-mail" name="email" [formControl]="email" [maxlength]="maxLength+8" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
     <mat-form-field class="edit-input">
       <input matInput placeholder="Phone number" name="phone" [(ngModel)]="newContact.phone" [maxlength]="maxLength-12"
@@ -23,5 +23,5 @@
     </mat-form-field>
   </div>
   <div mat-dialog-action>
-    <button mat-flat-button color="accent" (click)="addContact()">Create</button>
+    <button mat-flat-button color="accent" [disabled]="isDissable()" (click)="addContact()">Create</button>
   </div>

@@ -1,13 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Angular Material
 import { MatButtonModule, MatMenuModule, MatToolbarModule, MatIconModule, MatInputModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule, MatFormField } from '@angular/material/form-field';
 
 // Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -49,7 +50,9 @@ import { DialogService } from './dialog.service';
     MatInputModule,
     AppRoutes,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
   ],
   providers: [ContactService, DialogService],
   bootstrap: [AppComponent],
